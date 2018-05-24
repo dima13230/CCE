@@ -20,5 +20,5 @@ Common precautions of using display devices are advised.
 Our approximation to monochromatic colors found in the full spectrum of visible light is limited by the technological
 constraints of current display devices.
 
-#Contact
+# Contact
 If any questions contact [dima13230@gmail.com (Dmitry Senyushkin)](mailto:dima13230@gmail.com) or [robanan@gmail.com (Nima Sarabi)](mailto:robanan@gmail.com)
