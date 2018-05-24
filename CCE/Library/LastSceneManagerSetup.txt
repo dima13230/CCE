@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Plugins/UnityPurchasing/scenes/IAP Demo.unity
-  isLoaded: 1
-  isActive: 1
