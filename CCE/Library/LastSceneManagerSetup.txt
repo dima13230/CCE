@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Plugins/UnityPurchasing/scenes/IAP Demo.unity
+- path: Assets/TwoCircles.unity
   isLoaded: 1
   isActive: 1
