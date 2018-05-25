@@ -1,6 +1,6 @@
 # Colors Concentration Exercise - CCE
 
-Made with Unity3D 2018.1.0f
+Made with Unity3D 2018.1.0f2
 
 This work has been inspired by and based on Tom J. Chalko's insights about aura
 which can be discovered [here](https://thiaoouba.com/aura_eye_exercise.htm).
@@ -20,5 +20,10 @@ Common precautions of using display devices are advised.
 Our approximation to monochromatic colors found in the full spectrum of visible light is limited by the technological
 constraints of current display devices.
 
+# License
+
+Licensed under [Creative Commons Attribution-ShareAlike 4.0 International License.](http://creativecommons.org/licenses/by-sa/4.0/)
+
 # Contact
+
 If any questions contact [dima13230@gmail.com (Dmitry Senyushkin)](mailto:dima13230@gmail.com) or [robanan@gmail.com (Nima Sarabi)](mailto:robanan@gmail.com)
