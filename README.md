@@ -1,6 +1,8 @@
 # Colors Concentration Exercise - CCE
 
-Made with Unity3D 2018.1.0f2
+Made with Godot Engine v4.2.1
+
+# Disclaimer
 
 This work has been inspired by and based on Tom J. Chalko's insights about aura
 which can be discovered [here](https://thiaoouba.com/aura_eye_exercise.htm).
@@ -9,7 +11,7 @@ To learn the basics as well as theoretical background of this exercise
 we recommend to study aforementioned insights.
 
 This exercise is organized into separate difficulty levels, 
-choosing each difficulty requires the user to have gained prior degrees of mastery in the more simpler exercises.
+choosing each difficulty requires the user to have gained prior degrees of mastery in the more simple exercises.
 The more advanced levels offer more simulataneous degrees of exposure and stimulation of vision
  with more colors as well as the synchronization of both parts of the brain.
 
