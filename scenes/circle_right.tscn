@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1a1pslyyrdo8"]
+
+[ext_resource type="Texture2D" uid="uid://c8kfwx5srr6ob" path="res://sprites/CircleVerticalLine.png" id="1_jdxry"]
+[ext_resource type="Script" path="res://scripts/Circle.cs" id="2_1s35l"]
+
+[node name="TextureRectUp" type="TextureRect"]
+modulate = Color(1, 0, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("1_jdxry")
+script = ExtResource("2_1s35l")

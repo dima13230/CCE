@@ -1,0 +1,681 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxoqkhv81y4qp"]
+
+[ext_resource type="Script" path="res://scripts/ScreenManager.cs" id="1_adbgf"]
+[ext_resource type="Script" path="res://scripts/CirclesGroup.cs" id="2_j6xew"]
+[ext_resource type="PackedScene" uid="uid://dfw7x16ck76ov" path="res://scenes/circle_left.tscn" id="4_s0foh"]
+[ext_resource type="PackedScene" uid="uid://d1a1pslyyrdo8" path="res://scenes/circle_right.tscn" id="5_56qgf"]
+[ext_resource type="PackedScene" uid="uid://7exkutekk5ym" path="res://scenes/distance_slider.tscn" id="6_eakw5"]
+[ext_resource type="Texture2D" uid="uid://bu2727bv52eof" path="res://sprites/dot.png" id="6_oy2k3"]
+[ext_resource type="Texture2D" uid="uid://c8kfwx5srr6ob" path="res://sprites/CircleVerticalLine.png" id="6_wafms"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_auapo"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_qjudl"]
+default_font_size = 32
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_adbgf")
+
+[node name="Disclaimer" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExitButton" type="Button" parent="Disclaimer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Click on this area to continue..."
+
+[node name="Main Menu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Main Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.0
+offset_top = 11.0
+offset_right = 164.0
+offset_bottom = 56.0
+grow_horizontal = 2
+text = "Select your skill level:"
+label_settings = SubResource("LabelSettings_auapo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 287.0
+offset_top = 78.0
+offset_right = -287.0
+offset_bottom = 431.0
+grow_horizontal = 2
+theme_override_constants/separation = 16
+
+[node name="NoviceLevel" type="Button" parent="Main Menu/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_qjudl")
+text = "Novice"
+
+[node name="IntermediateLevel" type="Button" parent="Main Menu/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_qjudl")
+text = "Intermediate"
+
+[node name="AdvancedLevel" type="Button" parent="Main Menu/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_qjudl")
+text = "Advanced"
+
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -81.0
+offset_bottom = 81.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+
+[node name="ExitButton" type="Button" parent="Main Menu/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "X"
+
+[node name="Novice" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Novice"]
+layout_mode = 0
+offset_right = 91.0
+offset_bottom = 91.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+
+[node name="BackToMenu" type="Button" parent="Novice/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "<"
+
+[node name="DistanceSlider" parent="Novice" instance=ExtResource("6_eakw5")]
+layout_mode = 1
+offset_left = -234.5
+offset_top = -120.0
+offset_right = 234.5
+offset_bottom = 0.0
+
+[node name="CirclesGroupCommo" type="HBoxContainer" parent="Novice"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.0
+offset_top = -64.0
+offset_right = 278.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 250
+alignment = 1
+script = ExtResource("2_j6xew")
+
+[node name="CirclesGroupLeft" type="HBoxContainer" parent="Novice/CirclesGroupCommo"]
+layout_mode = 2
+script = ExtResource("2_j6xew")
+Colors = PackedColorArray(1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1)
+
+[node name="TextureRectUp" parent="Novice/CirclesGroupCommo/CirclesGroupLeft" instance=ExtResource("4_s0foh")]
+layout_mode = 2
+
+[node name="CirclesGroupRight" type="HBoxContainer" parent="Novice/CirclesGroupCommo"]
+layout_mode = 2
+script = ExtResource("2_j6xew")
+Colors = PackedColorArray(1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1)
+
+[node name="TextureRectUp" parent="Novice/CirclesGroupCommo/CirclesGroupRight" instance=ExtResource("5_56qgf")]
+layout_mode = 2
+startIndex = 1
+
+[node name="CirclesGroupControllerLeft" type="MarginContainer" parent="Novice"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -77.0
+offset_right = 114.0
+grow_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Novice/CirclesGroupControllerLeft"]
+layout_mode = 2
+
+[node name="BackwardButton" type="Button" parent="Novice/CirclesGroupControllerLeft/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = "<"
+
+[node name="ForwardButton" type="Button" parent="Novice/CirclesGroupControllerLeft/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = ">"
+
+[node name="CirclesGroupControllerRight" type="MarginContainer" parent="Novice"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -77.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Novice/CirclesGroupControllerRight"]
+layout_mode = 2
+
+[node name="BackwardButton" type="Button" parent="Novice/CirclesGroupControllerRight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = "<"
+
+[node name="ForwardButton" type="Button" parent="Novice/CirclesGroupControllerRight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = ">"
+
+[node name="TextureRect" type="TextureRect" parent="Novice"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("6_oy2k3")
+
+[node name="Intermediate" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CirclesGroupCommo" type="HBoxContainer" parent="Intermediate"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.0
+offset_top = -64.0
+offset_right = 278.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 250
+alignment = 1
+script = ExtResource("2_j6xew")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Intermediate/CirclesGroupCommo"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="CirclesGroupLeft" type="HBoxContainer" parent="Intermediate/CirclesGroupCommo/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_j6xew")
+Colors = PackedColorArray(1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1)
+
+[node name="TextureRectUp" parent="Intermediate/CirclesGroupCommo/VBoxContainer/CirclesGroupLeft" instance=ExtResource("4_s0foh")]
+layout_mode = 2
+
+[node name="CirclesGroupLeft2" type="HBoxContainer" parent="Intermediate/CirclesGroupCommo/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_j6xew")
+Colors = PackedColorArray(1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1)
+
+[node name="TextureRectUp" parent="Intermediate/CirclesGroupCommo/VBoxContainer/CirclesGroupLeft2" instance=ExtResource("4_s0foh")]
+layout_mode = 2
+startIndex = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Intermediate/CirclesGroupCommo"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="CirclesGroupRight" type="HBoxContainer" parent="Intermediate/CirclesGroupCommo/VBoxContainer2"]
+layout_mode = 2
+script = ExtResource("2_j6xew")
+Colors = PackedColorArray(1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1)
+
+[node name="TextureRectUp" parent="Intermediate/CirclesGroupCommo/VBoxContainer2/CirclesGroupRight" instance=ExtResource("5_56qgf")]
+layout_mode = 2
+startIndex = 2
+
+[node name="CirclesGroupRight2" type="HBoxContainer" parent="Intermediate/CirclesGroupCommo/VBoxContainer2"]
+layout_mode = 2
+script = ExtResource("2_j6xew")
+Colors = PackedColorArray(1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1)
+
+[node name="TextureRectUp" parent="Intermediate/CirclesGroupCommo/VBoxContainer2/CirclesGroupRight2" instance=ExtResource("5_56qgf")]
+layout_mode = 2
+startIndex = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Intermediate"]
+layout_mode = 0
+offset_right = 184.0
+offset_bottom = 89.0
+theme_override_constants/margin_left = 135
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 35
+
+[node name="BackToMenu" type="Button" parent="Intermediate/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "<"
+
+[node name="DistanceSlider" parent="Intermediate" instance=ExtResource("6_eakw5")]
+layout_mode = 1
+offset_left = -234.5
+offset_top = -120.0
+offset_right = 234.5
+offset_bottom = 0.0
+
+[node name="CirclesGroupControllerLeft" type="MarginContainer" parent="Intermediate"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -61.0
+offset_right = 114.0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Intermediate/CirclesGroupControllerLeft"]
+layout_mode = 2
+
+[node name="BackwardButton" type="Button" parent="Intermediate/CirclesGroupControllerLeft/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = "<"
+
+[node name="ForwardButton" type="Button" parent="Intermediate/CirclesGroupControllerLeft/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = ">"
+
+[node name="CirclesGroupControllerRight" type="MarginContainer" parent="Intermediate"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -61.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Intermediate/CirclesGroupControllerRight"]
+layout_mode = 2
+
+[node name="BackwardButton" type="Button" parent="Intermediate/CirclesGroupControllerRight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = "<"
+
+[node name="ForwardButton" type="Button" parent="Intermediate/CirclesGroupControllerRight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = ">"
+
+[node name="CirclesGroupControllerLeft2" type="MarginContainer" parent="Intermediate"]
+layout_mode = 1
+offset_right = 114.0
+offset_bottom = 109.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 64
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Intermediate/CirclesGroupControllerLeft2"]
+layout_mode = 2
+
+[node name="BackwardButton" type="Button" parent="Intermediate/CirclesGroupControllerLeft2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = "<"
+
+[node name="ForwardButton" type="Button" parent="Intermediate/CirclesGroupControllerLeft2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = ">"
+
+[node name="CirclesGroupControllerRight2" type="MarginContainer" parent="Intermediate"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -114.0
+offset_bottom = 109.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Intermediate/CirclesGroupControllerRight2"]
+layout_mode = 2
+
+[node name="BackwardButton" type="Button" parent="Intermediate/CirclesGroupControllerRight2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = "<"
+
+[node name="ForwardButton" type="Button" parent="Intermediate/CirclesGroupControllerRight2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = ">"
+
+[node name="Advanced" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DistanceSlider" parent="Advanced" instance=ExtResource("6_eakw5")]
+layout_mode = 1
+offset_left = -234.5
+offset_top = -120.0
+offset_right = 234.5
+offset_bottom = 0.0
+min_value = 400.0
+value = 500.0
+
+[node name="CirclesGroupCommo" type="HBoxContainer" parent="Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.0
+offset_top = -64.0
+offset_right = 278.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 700
+alignment = 1
+script = ExtResource("2_j6xew")
+
+[node name="CirclesGroupLeft" type="Control" parent="Advanced/CirclesGroupCommo"]
+layout_mode = 2
+script = ExtResource("2_j6xew")
+Colors = PackedColorArray(1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1)
+
+[node name="TextureRect1" parent="Advanced/CirclesGroupCommo/CirclesGroupLeft" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_top = -192.0
+offset_bottom = -64.0
+scale = Vector2(0.755, 0.755)
+
+[node name="TextureRect2" parent="Advanced/CirclesGroupCommo/CirclesGroupLeft" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_left = 62.0
+offset_top = -114.0
+offset_right = 190.0
+offset_bottom = 14.0
+scale = Vector2(0.755, 0.755)
+startIndex = 1
+
+[node name="TextureRect3" parent="Advanced/CirclesGroupCommo/CirclesGroupLeft" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_left = 62.0
+offset_top = -14.0
+offset_right = 190.0
+offset_bottom = 114.0
+scale = Vector2(0.755, 0.755)
+startIndex = 2
+
+[node name="TextureRect4" parent="Advanced/CirclesGroupCommo/CirclesGroupLeft" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_top = 64.0
+offset_bottom = 192.0
+scale = Vector2(0.755, 0.755)
+startIndex = 3
+
+[node name="TextureRect5" parent="Advanced/CirclesGroupCommo/CirclesGroupLeft" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_left = -185.0
+offset_top = -14.0
+offset_right = -57.0
+offset_bottom = 114.0
+scale = Vector2(0.755, 0.755)
+startIndex = 4
+
+[node name="TextureRect6" parent="Advanced/CirclesGroupCommo/CirclesGroupLeft" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_left = -185.0
+offset_top = -114.0
+offset_right = -57.0
+offset_bottom = 14.0
+scale = Vector2(0.755, 0.755)
+startIndex = 5
+
+[node name="CirclesGroupRight" type="Control" parent="Advanced/CirclesGroupCommo"]
+layout_mode = 2
+script = ExtResource("2_j6xew")
+Colors = PackedColorArray(1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1)
+
+[node name="TextureRect1" parent="Advanced/CirclesGroupCommo/CirclesGroupRight" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_top = -192.0
+offset_bottom = -64.0
+scale = Vector2(0.755, 0.755)
+texture = ExtResource("6_wafms")
+
+[node name="TextureRect2" parent="Advanced/CirclesGroupCommo/CirclesGroupRight" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_left = 62.0
+offset_top = -114.0
+offset_right = 190.0
+offset_bottom = 14.0
+scale = Vector2(0.755, 0.755)
+texture = ExtResource("6_wafms")
+startIndex = 1
+
+[node name="TextureRect3" parent="Advanced/CirclesGroupCommo/CirclesGroupRight" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_left = 62.0
+offset_top = -14.0
+offset_right = 190.0
+offset_bottom = 114.0
+scale = Vector2(0.755, 0.755)
+texture = ExtResource("6_wafms")
+startIndex = 2
+
+[node name="TextureRect4" parent="Advanced/CirclesGroupCommo/CirclesGroupRight" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_top = 64.0
+offset_bottom = 192.0
+scale = Vector2(0.755, 0.755)
+texture = ExtResource("6_wafms")
+startIndex = 3
+
+[node name="TextureRect5" parent="Advanced/CirclesGroupCommo/CirclesGroupRight" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_left = -185.0
+offset_top = -14.0
+offset_right = -57.0
+offset_bottom = 114.0
+scale = Vector2(0.755, 0.755)
+texture = ExtResource("6_wafms")
+startIndex = 4
+
+[node name="TextureRect6" parent="Advanced/CirclesGroupCommo/CirclesGroupRight" instance=ExtResource("4_s0foh")]
+layout_mode = 1
+offset_left = -185.0
+offset_top = -114.0
+offset_right = -57.0
+offset_bottom = 14.0
+scale = Vector2(0.755, 0.755)
+texture = ExtResource("6_wafms")
+startIndex = 5
+
+[node name="CirclesGroupControllerLeft" type="MarginContainer" parent="Advanced"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -61.0
+offset_right = 114.0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Advanced/CirclesGroupControllerLeft"]
+layout_mode = 2
+
+[node name="BackwardButton" type="Button" parent="Advanced/CirclesGroupControllerLeft/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = "<"
+
+[node name="ForwardButton" type="Button" parent="Advanced/CirclesGroupControllerLeft/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = ">"
+
+[node name="CirclesGroupControllerRight" type="MarginContainer" parent="Advanced"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -61.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Advanced/CirclesGroupControllerRight"]
+layout_mode = 2
+
+[node name="BackwardButton" type="Button" parent="Advanced/CirclesGroupControllerRight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = "<"
+
+[node name="ForwardButton" type="Button" parent="Advanced/CirclesGroupControllerRight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 27
+text = ">"
+
+[node name="MarginContainer" type="MarginContainer" parent="Advanced"]
+layout_mode = 0
+offset_right = 122.0
+offset_bottom = 89.0
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 35
+
+[node name="BackToMenu" type="Button" parent="Advanced/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "<"
+
+[connection signal="pressed" from="Disclaimer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Main Menu/VBoxContainer/NoviceLevel" to="." method="_on_novice_level_pressed"]
+[connection signal="pressed" from="Main Menu/VBoxContainer/IntermediateLevel" to="." method="_on_intermediate_level_pressed"]
+[connection signal="pressed" from="Main Menu/VBoxContainer/AdvancedLevel" to="." method="_on_advanced_level_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Novice/MarginContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="value_changed" from="Novice/DistanceSlider" to="Novice/CirclesGroupCommo" method="ModifyCirclesSeparation"]
+[connection signal="pressed" from="Novice/CirclesGroupControllerLeft/HBoxContainer/BackwardButton" to="Novice/CirclesGroupCommo/CirclesGroupLeft" method="RotateBackward"]
+[connection signal="pressed" from="Novice/CirclesGroupControllerLeft/HBoxContainer/ForwardButton" to="Novice/CirclesGroupCommo/CirclesGroupLeft" method="RotateForward"]
+[connection signal="pressed" from="Novice/CirclesGroupControllerRight/HBoxContainer/BackwardButton" to="Novice/CirclesGroupCommo/CirclesGroupRight" method="RotateBackward"]
+[connection signal="pressed" from="Novice/CirclesGroupControllerRight/HBoxContainer/ForwardButton" to="Novice/CirclesGroupCommo/CirclesGroupRight" method="RotateForward"]
+[connection signal="pressed" from="Intermediate/MarginContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="value_changed" from="Intermediate/DistanceSlider" to="Intermediate/CirclesGroupCommo" method="ModifyCirclesSeparation"]
+[connection signal="pressed" from="Intermediate/CirclesGroupControllerLeft/HBoxContainer/BackwardButton" to="Intermediate/CirclesGroupCommo/VBoxContainer/CirclesGroupLeft2" method="RotateBackward"]
+[connection signal="pressed" from="Intermediate/CirclesGroupControllerLeft/HBoxContainer/ForwardButton" to="Intermediate/CirclesGroupCommo/VBoxContainer/CirclesGroupLeft2" method="RotateForward"]
+[connection signal="pressed" from="Intermediate/CirclesGroupControllerRight/HBoxContainer/BackwardButton" to="Intermediate/CirclesGroupCommo/VBoxContainer2/CirclesGroupRight2" method="RotateBackward"]
+[connection signal="pressed" from="Intermediate/CirclesGroupControllerRight/HBoxContainer/ForwardButton" to="Intermediate/CirclesGroupCommo/VBoxContainer2/CirclesGroupRight2" method="RotateForward"]
+[connection signal="pressed" from="Intermediate/CirclesGroupControllerLeft2/HBoxContainer/BackwardButton" to="Intermediate/CirclesGroupCommo/VBoxContainer/CirclesGroupLeft" method="RotateBackward"]
+[connection signal="pressed" from="Intermediate/CirclesGroupControllerLeft2/HBoxContainer/ForwardButton" to="Intermediate/CirclesGroupCommo/VBoxContainer/CirclesGroupLeft" method="RotateForward"]
+[connection signal="pressed" from="Intermediate/CirclesGroupControllerRight2/HBoxContainer/BackwardButton" to="Intermediate/CirclesGroupCommo/VBoxContainer2/CirclesGroupRight" method="RotateBackward"]
+[connection signal="pressed" from="Intermediate/CirclesGroupControllerRight2/HBoxContainer/ForwardButton" to="Intermediate/CirclesGroupCommo/VBoxContainer2/CirclesGroupRight" method="RotateForward"]
+[connection signal="value_changed" from="Advanced/DistanceSlider" to="Advanced/CirclesGroupCommo" method="ModifyCirclesSeparation"]
+[connection signal="pressed" from="Advanced/CirclesGroupControllerLeft/HBoxContainer/BackwardButton" to="Advanced/CirclesGroupCommo/CirclesGroupLeft" method="RotateBackward"]
+[connection signal="pressed" from="Advanced/CirclesGroupControllerLeft/HBoxContainer/ForwardButton" to="Advanced/CirclesGroupCommo/CirclesGroupLeft" method="RotateForward"]
+[connection signal="pressed" from="Advanced/CirclesGroupControllerRight/HBoxContainer/BackwardButton" to="Advanced/CirclesGroupCommo/CirclesGroupRight" method="RotateBackward"]
+[connection signal="pressed" from="Advanced/CirclesGroupControllerRight/HBoxContainer/ForwardButton" to="Advanced/CirclesGroupCommo/CirclesGroupRight" method="RotateForward"]
+[connection signal="pressed" from="Advanced/MarginContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

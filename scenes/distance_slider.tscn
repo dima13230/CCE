@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://7exkutekk5ym"]
+
+[ext_resource type="Texture2D" uid="uid://bu2727bv52eof" path="res://sprites/dot.png" id="1_elqsh"]
+[ext_resource type="StyleBox" uid="uid://blhgkatjydgxk" path="res://scenes/distance_slider_style.tres" id="2_g2a0r"]
+
+[node name="DistanceSlider" type="HSlider"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -720.0
+offset_right = -171.0
+offset_bottom = -600.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/center_grabber = 16
+theme_override_icons/grabber = ExtResource("1_elqsh")
+theme_override_icons/grabber_highlight = ExtResource("1_elqsh")
+theme_override_styles/grabber_area = ExtResource("2_g2a0r")
+theme_override_styles/grabber_area_highlight = ExtResource("2_g2a0r")
+min_value = 100.0
+max_value = 700.0
+value = 200.0
