@@ -28,4 +28,4 @@ Licensed under [Creative Commons Attribution-ShareAlike 4.0 International Licens
 
 # Contact
 
-If any questions contact [dima13230@gmail.com (Dmitry Senyushkin)](mailto:dima13230@gmail.com) or [robanan@gmail.com (Nima Sarabi)](mailto:robanan@gmail.com)
+If you have any questions contact [dsenyushkin.dev@gmail.com (Dmitry Senyushkin)](mailto:dima13230@gmail.com) or [robanan@gmail.com (Nima Sarabi)](mailto:robanan@gmail.com)
